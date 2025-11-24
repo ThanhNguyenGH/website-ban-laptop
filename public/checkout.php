@@ -17,11 +17,11 @@
 		</div>
 		<div class="my-3">
 			<label>Họ tên</label>
-			<input type="text" class="form-control" name="txthoten" value="<?php echo $_SESSION["khachhang"]["hoten"]; ?>" disabled>
+			<input type="text" class="form-control" name="txthoten" required placeholder="Nguyễn Văn A" value="<?php echo $_SESSION["khachhang"]["hoten"]; ?>" disabled>
 		</div>
 		<div class="my-3">
 			<label>Số điện thoại</label>
-			<input type="number" class="form-control" name="txtsodienthoai" value="<?php echo $_SESSION["khachhang"]["sodienthoai"] ?>" disabled>
+			<input type="number" class="form-control" name="txtsodienthoai" required pattern="[0-9]{10}" placeholder="0901234567"value="<?php echo $_SESSION["khachhang"]["sodienthoai"] ?>" disabled>
 		</div>
 		<div class="my-3">
 			<label>Địa chỉ giao hàng</label>
