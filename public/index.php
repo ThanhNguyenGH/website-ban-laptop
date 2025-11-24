@@ -292,5 +292,20 @@ switch ($action) {
         $laptops = $laptopModel->laylaptop();
         include("main.php");
         break;
+    // =============================================
+    // Xử lý tìm kiếm (Thêm mới)
+    // =============================================
+    case "timkiem":
+        if(isset($_GET["txtsearch"])){
+            $tukhoa = $_GET["txtsearch"];
+            $laptops = $laptopModel->timkiemlaptop($tukhoa);
+            // Tận dụng lại giao diện main.php để hiển thị kết quả
+            include("main.php");
+        } else {
+            // Nếu không có từ khóa thì về trang chủ
+            $laptops = $laptopModel->laylaptop();
+            include("main.php");
+        }
+        break;
 }
 ?>
