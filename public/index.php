@@ -34,7 +34,14 @@ switch ($action) {
     // Trang chủ
     // =============================================
     case "trangchu":
-        $laptops = $laptopModel->laylaptop();
+        // Kiểm tra nếu có yêu cầu sắp xếp
+        if (isset($_GET['sort'])) {
+            $kieu = $_GET['sort']; // 'ASC' hoặc 'DESC'
+            $laptops = $laptopModel->laylaptop_sapxep($kieu);
+        } else {
+            // Mặc định
+            $laptops = $laptopModel->laylaptop();
+        }
         include("main.php");
         break;
 
