@@ -43,6 +43,11 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <form class="d-flex mx-auto" action="index.php" method="get">
+                <input type="hidden" name="action" value="timkiem">
+                <input class="form-control me-2" type="search" name="txtsearch" placeholder="Tìm laptop..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+            </form>
                 <li class="nav-item"><a class="nav-link" href="index.php">Trang chủ</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
