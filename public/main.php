@@ -53,7 +53,12 @@ foreach ($hangs as $hang) {
                         <?php if ($lt["khuyenmai"] == 1 || $lt["giaban"] < $lt["giagoc"]) { ?>
                             <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                                 Giảm giá
-                            </div>
+                            </div>                                      
+                        <?php } ?>
+                        <?php if ($lt["noibat"] == 1) { ?>
+                        <div class="badge bg-warning text-dark position-absolute shadow-sm" style="top: 0.5rem; left: 0.5rem">
+                            <i class="bi bi-fire"></i> HOT
+                        </div>
                         <?php } ?>
 
                         <!-- Hình ảnh chính (lấy ảnh đầu tiên từ bảng laptop_hinhanh hoặc ảnh mặc định) -->
