@@ -15,6 +15,19 @@ foreach ($hangs as $hang) {
     </h3>
 
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="d-flex justify-content-end mb-3">
+    <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-sort-numeric-down"></i> Sắp xếp giá
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.php?sort=ASC">Giá: Thấp đến Cao</a></li>
+            <li><a class="dropdown-item" href="index.php?sort=DESC">Giá: Cao đến Thấp</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.php">Mặc định</a></li>
+        </ul>
+    </div>
+</div>
         <?php 
         // $laptops: danh sách tất cả laptop (đã JOIN tên hãng) được truyền từ controller
         foreach ($laptops as $lt) { 
