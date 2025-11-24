@@ -36,6 +36,19 @@
           <div class="col">
             <input type="submit" class="btn btn-primary" value="Chọn mua">
           </div>
+			<div class="card mt-4 border-success">
+			    <div class="card-header bg-success text-white fw-bold">
+			        <i class="bi bi-gift-fill"></i> Ưu đãi & Cam kết
+			    </div>
+			    <div class="card-body">
+			        <ul class="list-unstyled mb-0">
+			            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Bảo hành chính hãng 12-24 tháng</li>
+			            <li class="mb-2"><i class="bi bi-arrow-repeat text-success me-2"></i>1 đổi 1 trong 15 ngày nếu lỗi</li>
+			            <li class="mb-2"><i class="bi bi-truck text-success me-2"></i>Miễn phí vận chuyển toàn quốc</li>
+			            <li><i class="bi bi-tools text-success me-2"></i>Hỗ trợ cài đặt phần mềm trọn đời</li>
+			        </ul>
+			    </div>
+			</div>
         </div>		
     	</form>  	  
   	  </div>
