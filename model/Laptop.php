@@ -324,5 +324,23 @@ class LAPTOP {
             exit();
         }
     }
+    // --- Lấy laptop có sắp xếp ---
+    public function laylaptop_sapxep($kieusapxep){
+        // Kiểm tra an toàn để tránh SQL Injection
+        $allowed = ['ASC', 'DESC'];
+        $order = in_array($kieusapxep, $allowed) ? $kieusapxep : 'ASC';
+
+        $db = DATABASE::connect();
+        try{
+            $sql = "SELECT * FROM laptop ORDER BY giaban $order";
+            $cmd = $db->prepare($sql);
+            $cmd->execute();
+            return $cmd->fetchAll();
+        }
+        catch(PDOException $e){
+            echo "<p>Lỗi truy vấn: ".$e->getMessage()."</p>";
+            exit();
+        }
+    }
 }
 ?>
