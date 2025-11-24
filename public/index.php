@@ -6,7 +6,7 @@ require("../model/Laptop.php");
 require("../model/Giohang.php");
 // require("../model/DongMay.php");
 // require("../model/MucDich.php");
-
+require("../model/Common.php");
 require("../model/Khachhang.php");
 require("../model/Diachi.php");
 require("../model/Donhang.php");
