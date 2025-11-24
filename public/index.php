@@ -107,10 +107,11 @@ switch ($action) {
         }
 
         // Cập nhật lại giỏ hàng để hiển thị
+        $_SESSION['thongbao'] = "Đã thêm sản phẩm vào giỏ hàng thành công!";
+        
         $giohang = laygiohang();
         include("cart.php");
         break;
-
     // =============================================
     // Xem giỏ hàng
     // =============================================
