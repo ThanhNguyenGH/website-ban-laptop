@@ -16,6 +16,20 @@ foreach ($hangs as $hang) {
 
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         <div class="d-flex justify-content-end mb-3">
+    <div class="d-flex justify-content-end mb-3 gap-2">
+    <div class="dropdown">
+        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-funnel"></i> Lọc theo giá
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.php?action=locgia&min=0&max=10000000">Dưới 10 triệu</a></li>
+            <li><a class="dropdown-item" href="index.php?action=locgia&min=10000000&max=20000000">Từ 10 - 20 triệu</a></li>
+            <li><a class="dropdown-item" href="index.php?action=locgia&min=20000000&max=100000000">Trên 20 triệu</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.php">Tất cả mức giá</a></li>
+        </ul>
+    </div>
+
     <div class="dropdown">
         <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
             <i class="bi bi-sort-numeric-down"></i> Sắp xếp giá
@@ -23,8 +37,6 @@ foreach ($hangs as $hang) {
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?sort=ASC">Giá: Thấp đến Cao</a></li>
             <li><a class="dropdown-item" href="index.php?sort=DESC">Giá: Cao đến Thấp</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.php">Mặc định</a></li>
         </ul>
     </div>
 </div>
