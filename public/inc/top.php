@@ -31,6 +31,16 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+    </nav> <?php if (isset($_SESSION['thongbao'])): ?>
+    <div class="alert alert-success alert-dismissible fade show text-center m-0" role="alert">
+        <i class="bi bi-check-circle-fill"></i> 
+        <?php 
+            echo $_SESSION['thongbao']; 
+            unset($_SESSION['thongbao']); // Xóa thông báo sau khi hiện xong
+        ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
     <div class="container-fluid px-4 px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="index.php">
             <i class="bi bi-laptop-fill text-warning me-2" style="font-size: 2rem;"></i>
