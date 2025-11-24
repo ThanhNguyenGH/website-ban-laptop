@@ -342,5 +342,21 @@ class LAPTOP {
             exit();
         }
     }
+    // --- Lấy laptop theo khoảng giá ---
+    public function laylaptop_theo_gia($min, $max){
+        $db = DATABASE::connect();
+        try{
+            $sql = "SELECT * FROM laptop WHERE giaban >= :min AND giaban <= :max";
+            $cmd = $db->prepare($sql);
+            $cmd->bindValue(":min", $min);
+            $cmd->bindValue(":max", $max);
+            $cmd->execute();
+            return $cmd->fetchAll();
+        }
+        catch(PDOException $e){
+            echo "<p>Lỗi truy vấn: ".$e->getMessage()."</p>";
+            exit();
+        }
+    }
 }
 ?>
