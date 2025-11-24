@@ -121,6 +121,16 @@ switch ($action) {
         break;
 
     // =============================================
+    // Lọc theo giá (Thêm mới)
+    // =============================================
+    case "locgia":
+        $min = isset($_GET['min']) ? $_GET['min'] : 0;
+        $max = isset($_GET['max']) ? $_GET['max'] : 9999999999;
+        $laptops = $laptopModel->laylaptop_theo_gia($min, $max);
+        include("main.php");
+        break;
+
+    // =============================================
     // Cập nhật số lượng trong giỏ
     // =============================================
     case "capnhatgio":
