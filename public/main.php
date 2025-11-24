@@ -85,9 +85,13 @@ foreach ($hangs as $hang) {
 
                         <!-- Nút chọn mua -->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-info mt-auto" href="index.php?action=chovaogio&id=<?php echo $lt["id"]; ?>">
-                                    Chọn mua
+                            <div class="text-center d-flex justify-content-center gap-2">
+                                <a class="btn btn-outline-secondary mt-auto" href="index.php?action=chitiet&id=<?php echo $lt["id"]; ?>">
+                                    <i class="bi bi-eye"></i> Chi tiết
+                                </a>
+                                
+                                <a class="btn btn-info mt-auto text-white" href="index.php?action=chovaogio&id=<?php echo $lt["id"]; ?>&soluong=1">
+                                    <i class="bi bi-cart-plus"></i> Mua ngay
                                 </a>
                             </div>
                         </div>
