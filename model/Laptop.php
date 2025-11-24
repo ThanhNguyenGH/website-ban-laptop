@@ -308,5 +308,21 @@ class LAPTOP {
         
         return $str;
     }
+    // Tìm kiếm laptop theo tên ---
+    public function timkiemlaptop($tukhoa){
+        $db = DATABASE::connect();
+        try{
+            $sql = "SELECT * FROM laptop WHERE tenlaptop LIKE :tukhoa";
+            $cmd = $db->prepare($sql);
+            $cmd->bindValue(":tukhoa", "%$tukhoa%");
+            $cmd->execute();
+            return $cmd->fetchAll();
+        }
+        catch(PDOException $e){
+            $error_message = $e->getMessage();
+            echo "<p>Lỗi truy vấn: $error_message</p>";
+            exit();
+        }
+    }
 }
 ?>
