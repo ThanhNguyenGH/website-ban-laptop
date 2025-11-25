@@ -124,5 +124,61 @@
   </div>
   
 
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-star-fill"></i> Đánh giá sản phẩm</h5>
+            </div>
+            <div class="card-body">
+                <?php if(isset($_SESSION['khachhang'])): ?>
+                <form action="index.php?action=guidanhgia" method="post" class="mb-4 border-bottom pb-4">
+                    <input type="hidden" name="laptop_id" value="<?php echo $laptop['id']; ?>">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Chọn mức độ hài lòng:</label>
+                        <select name="diem" class="form-select w-auto">
+                            <option value="5">⭐⭐⭐⭐⭐ (Tuyệt vời)</option>
+                            <option value="4">⭐⭐⭐⭐ (Tốt)</option>
+                            <option value="3">⭐⭐⭐ (Bình thường)</option>
+                            <option value="2">⭐⭐ (Tệ)</option>
+                            <option value="1">⭐ (Rất tệ)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nhận xét của bạn:</label>
+                        <textarea name="noidung" class="form-control" rows="3" placeholder="Chia sẻ cảm nhận về sản phẩm..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-send"></i> Gửi đánh giá</button>
+                </form>
+                <?php else: ?>
+                    <div class="alert alert-info">Vui lòng <a href="index.php?action=dangnhap">đăng nhập</a> để viết đánh giá.</div>
+                <?php endif; ?>
 
+                <?php 
+                // Lấy danh sách đánh giá
+                $dsdanhgia = (new DANHGIA())->laydanhgia($laptop['id']);
+                if(count($dsdanhgia) > 0): 
+                    foreach($dsdanhgia as $dg):
+                ?>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0">
+                        <img src="../images/users/<?php echo $dg['hinhanh'] ?? 'default_user.png'; ?>" class="rounded-circle" width="50" height="50">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h6 class="fw-bold mb-0"><?php echo $dg['hoten']; ?></h6>
+                        <div class="text-warning small">
+                            <?php for($k=1; $k<=5; $k++) echo $k <= $dg['diem'] ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>'; ?>
+                        </div>
+                        <p class="mb-1"><?php echo $dg['noidung']; ?></p>
+                        <small class="text-muted"><?php echo date('d/m/Y', strtotime($dg['ngaydanhgia'])); ?></small>
+                    </div>
+                </div>
+                <hr>
+                <?php endforeach; else: ?>
+                    <p class="text-center text-muted">Chưa có đánh giá nào. Hãy là người đầu tiên!</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
 <?php include("inc/bottom.php"); ?>
