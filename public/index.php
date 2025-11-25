@@ -20,6 +20,8 @@ $khachhangModel = new KHACHHANG();
 $diachiModel   = new DIACHI();
 $donhangModel  = new DONHANG();
 $donhangctModel = new DONHANGCT();
+$tintucModel = new TINTUC();
+$danhgiaModel = new DANHGIA();
 
 // Dữ liệu chung cho header (hiển thị ở mọi trang)
 $hangs           = $hangModel->layhang();           // Tất cả hãng
@@ -156,7 +158,47 @@ switch ($action) {
         $giohang = laygiohang();
         include("cart.php");
         break;
-
+    // --- MODULE TIN TỨC ---
+    case "tintuc":
+        $dstintuc = $tintucModel->laytintuc();
+        include("news.php");
+        break;
+    
+    case "chitiettintuc":
+        if(isset($_GET['id'])){
+            $tintuc = $tintucModel->laytintuCT($_GET['id']);
+            include("news_detail.php");
+        }
+        break;
+    
+    // --- MODULE LỊCH SỬ ĐƠN HÀNG ---
+    case "lichsu":
+        if(!isset($_SESSION['khachhang'])){
+            header("Location: index.php?action=dangnhap");
+            exit();
+        }
+        // Bạn cần thêm hàm laydonhangcuakhach trong Model Donhang nhé
+        // $donhangs = $donhangModel->laydonhangcuakhach($_SESSION['khachhang']['id']); 
+        // Tạm thời để trống hoặc code hàm đó sau
+        include("history.php");
+        break;
+    
+    // --- MODULE GỬI ĐÁNH GIÁ ---
+    case "guidanhgia":
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_SESSION['khachhang'])){
+                $laptop_id = $_POST['laptop_id'];
+                $nguoidung_id = $_SESSION['khachhang']['id'];
+                $diem = $_POST['diem'];
+                $noidung = $_POST['noidung'];
+                $danhgiaModel->themdanhgia($laptop_id, $nguoidung_id, $diem, $noidung);
+                header("Location: index.php?action=chitiet&id=$laptop_id");
+            } else {
+                $_SESSION['thongbao'] = "Vui lòng đăng nhập để đánh giá!";
+                header("Location: index.php?action=dangnhap");
+            }
+        }
+        break;
     // =============================================
     // Thanh toán
     // =============================================
