@@ -199,6 +199,29 @@ switch ($action) {
             }
         }
         break;
+
+    // --- MODULE LIÊN HỆ ---
+    case "lienhe":
+        include("contact.php");
+        break;
+    
+    case "xulylienhe":
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $email = $_POST['email'];
+            $sdt = $_POST['sodienthoai'];
+            $noidung = $_POST['noidung'];
+            
+            require("../model/Lienhe.php");
+            $lienheModel = new LIENHE();
+            if($lienheModel->themlienhe($email, $sdt, $noidung)){
+                echo "<script>alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm.'); window.location.href='index.php';</script>";
+            } else {
+                echo "<script>alert('Lỗi gửi liên hệ!'); history.back();</script>";
+            }
+        }
+        break;
+
+    
     // =============================================
     // Thanh toán
     // =============================================
