@@ -388,6 +388,31 @@ INSERT INTO `tintuc` (`tieude`, `slug`, `tomtat`, `noidung`, `hinhanh`) VALUES
 ('Đánh giá MacBook Pro M4: Quái vật hiệu năng', 'danh-gia-macbook-pro-m4', 'Apple vừa ra mắt dòng chip M4 mới với hiệu năng vượt trội...', 'Nội dung chi tiết bài viết đánh giá...', 'news1.jpg'),
 ('Top 5 Laptop Gaming đáng mua nhất 2025', 'top-5-laptop-gaming-2025', 'Danh sách các mẫu laptop gaming giá tốt, cấu hình mạnh...', 'Nội dung chi tiết top 5...', 'news2.jpg'),
 ('Cách bảo quản pin laptop bền bỉ theo thời gian', 'cach-bao-quan-pin-laptop', 'Pin laptop là linh kiện dễ chai nhất, hãy cùng xem cách bảo quản...', 'Nội dung hướng dẫn...', 'news3.jpg');
+
+
+-- Bảng Đánh giá (Reviews)
+CREATE TABLE `danhgia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `laptop_id` int(11) NOT NULL,
+  `nguoidung_id` int(11) NOT NULL,
+  `diem` tinyint(1) NOT NULL DEFAULT 5,
+  `noidung` text NOT NULL,
+  `ngaydanhgia` datetime DEFAULT current_timestamp(),
+  `trangthai` tinyint(1) DEFAULT 0 COMMENT '0: Chờ duyệt, 1: Hiển thị',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Bảng Liên hệ (Contact)
+CREATE TABLE `lienhe` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `sodienthoai` varchar(20) DEFAULT NULL,
+  `noidung` text NOT NULL,
+  `ngaygui` datetime DEFAULT current_timestamp(),
+  `trangthai` tinyint(1) DEFAULT 0 COMMENT '0: Chưa xem, 1: Đã xem',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- =========================================================
 -- Tài khoản đăng nhập mẫu
 -- =========================================================
