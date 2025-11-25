@@ -370,6 +370,24 @@ INSERT INTO `danhgia` (`laptop_id`, `nguoidung_id`, `diem`, `tieude`, `noidung`)
 (4, 4, 5, 'Giá rẻ mà RTX 4060', 'Mua được giá khuyến mãi quá hời, chơi game ngon lành'),
 (6, 5, 5, 'Mỏng nhẹ pin trâu', 'Dùng cả ngày không cần sạc, màn OLED đẹp xuất sắc');
 
+-- Bảng Tin tức
+CREATE TABLE `tintuc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tieude` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `tomtat` text DEFAULT NULL,
+  `noidung` longtext DEFAULT NULL,
+  `hinhanh` varchar(255) DEFAULT NULL,
+  `ngaydang` datetime DEFAULT current_timestamp(),
+  `trangthai` tinyint(1) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dữ liệu mẫu Tin tức
+INSERT INTO `tintuc` (`tieude`, `slug`, `tomtat`, `noidung`, `hinhanh`) VALUES
+('Đánh giá MacBook Pro M4: Quái vật hiệu năng', 'danh-gia-macbook-pro-m4', 'Apple vừa ra mắt dòng chip M4 mới với hiệu năng vượt trội...', 'Nội dung chi tiết bài viết đánh giá...', 'news1.jpg'),
+('Top 5 Laptop Gaming đáng mua nhất 2025', 'top-5-laptop-gaming-2025', 'Danh sách các mẫu laptop gaming giá tốt, cấu hình mạnh...', 'Nội dung chi tiết top 5...', 'news2.jpg'),
+('Cách bảo quản pin laptop bền bỉ theo thời gian', 'cach-bao-quan-pin-laptop', 'Pin laptop là linh kiện dễ chai nhất, hãy cùng xem cách bảo quản...', 'Nội dung hướng dẫn...', 'news3.jpg');
 -- =========================================================
 -- Tài khoản đăng nhập mẫu
 -- =========================================================
